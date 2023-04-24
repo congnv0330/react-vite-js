@@ -4,30 +4,35 @@
 
 Install package
 ```
-yarn
+npm install
+```
+
+Create environment variables
+```
+cp .env.exmaple .env
 ```
 
 ## Available Scripts
 
 Runs the app in the development mode
 ```
-yarn dev
+npm run dev
 ```
 
 Builds the app for production to the `dist` folder
 ```
-yarn build
+npm run build
 ```
 
-Runs the app in the production mode. You need run this command first `yarn build`
+Runs the app in the production mode. You need run this command first `npm run build`
 ```
-yarn preview
+npm run preview
 ```
 
 Find and fix problems in your JavaScript code - ESLint
 ```
-yarn lint
+npm run lint
 ```
 ```
-yarn lint:fix
+npm run lint:fix
 ```
