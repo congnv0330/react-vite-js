@@ -25,10 +25,11 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
+      assetsDir: 'static',
       rollupOptions: {
         output: {
-          chunkFileNames: '[hash].chunk.js',
-          assetFileNames: '[hash].chunk.[ext]',
+          chunkFileNames: 'static/[hash].chunk.js',
+          assetFileNames: 'static/[hash].chunk.[ext]',
         },
       },
     },
