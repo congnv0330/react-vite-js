@@ -1,6 +1,3 @@
-/* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution');
-
 const restrictedGlobals = require('confusing-browser-globals');
 
 /** @type {import('eslint').Linter.Config} */
