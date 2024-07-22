@@ -9,8 +9,8 @@ import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 
 /**
- * @param  {...(import("eslint").Linter.FlatConfig & { extends: any[] })} configs
- * @returns {import("eslint").Linter.FlatConfig[]}
+ * @param  {...(import('eslint').Linter.FlatConfig & { extends: any[] })} configs
+ * @returns {import('eslint').Linter.FlatConfig[]}
  */
 function defineConfig(...configs) {
   return configs.flatMap((configWithExtends) => {
