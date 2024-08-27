@@ -1,6 +1,4 @@
-import { fixupPluginRules } from '@eslint/compat';
 import js from '@eslint/js';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
 import eslintPrettier from 'eslint-plugin-prettier/recommended';
 import reactConfigJsxRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
 import reactConfigRecommended from 'eslint-plugin-react/configs/recommended.js';
@@ -40,7 +38,6 @@ export default defineConfig({
     js.configs.recommended,
     reactConfigRecommended,
     reactConfigJsxRuntime,
-    jsxA11y.flatConfigs.recommended,
     eslintPrettier,
   ],
 
@@ -52,7 +49,7 @@ export default defineConfig({
 
   plugins: {
     'simple-import-sort': simpleImportSortPlugin,
-    'react-hooks': fixupPluginRules(reactHooks),
+    'react-hooks': reactHooks,
   },
 
   languageOptions: {
@@ -64,6 +61,12 @@ export default defineConfig({
     ecmaVersion: 2020,
 
     sourceType: 'module',
+
+    parserOptions: {
+      ecmaFeatures: {
+        jsx: true,
+      },
+    },
   },
 
   settings: {
