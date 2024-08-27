@@ -9,8 +9,8 @@ import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 
 /**
- * @param  {...(import('eslint').Linter.FlatConfig & { extends: any[] })} configs
- * @returns {import('eslint').Linter.FlatConfig[]}
+ * @param  {...(import('eslint').Linter.Config & { extends: any[] })} configs
+ * @returns {import('eslint').Linter.Config[]}
  */
 function defineConfig(...configs) {
   return configs.flatMap((configWithExtends) => {
@@ -58,6 +58,7 @@ export default defineConfig({
   languageOptions: {
     globals: {
       ...globals.browser,
+      ...globals.node,
     },
 
     ecmaVersion: 2020,
