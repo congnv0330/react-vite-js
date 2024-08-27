@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import eslintPrettier from 'eslint-plugin-prettier/recommended';
 import reactConfigJsxRuntime from 'eslint-plugin-react/configs/jsx-runtime.js';
 import reactConfigRecommended from 'eslint-plugin-react/configs/recommended.js';
-import reactHooks from 'eslint-plugin-react-hooks';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import globals from 'globals';
 
@@ -49,7 +49,7 @@ export default defineConfig({
 
   plugins: {
     'simple-import-sort': simpleImportSortPlugin,
-    'react-hooks': reactHooks,
+    'react-hooks': reactHooksPlugin,
   },
 
   languageOptions: {
@@ -80,7 +80,7 @@ export default defineConfig({
     'react/display-name': 'off',
 
     // eslint-plugin-react-hooks
-    ...reactHooks.configs.recommended.rules,
+    ...reactHooksPlugin.configs.recommended.rules,
 
     // simple-import-sort
     'simple-import-sort/exports': 'error',
