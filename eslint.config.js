@@ -33,75 +33,78 @@ function defineConfig(...configs) {
   });
 }
 
-export default defineConfig({
-  extends: [
-    js.configs.recommended,
-    reactConfigRecommended,
-    reactConfigJsxRuntime,
-    eslintPrettier,
-  ],
-
-  files: ['src/**/*.js', 'src/**/*.jsx', '*.config.js'],
-
-  linterOptions: {
-    reportUnusedDisableDirectives: 'error',
-  },
-
-  plugins: {
-    'simple-import-sort': simpleImportSortPlugin,
-    'react-hooks': reactHooksPlugin,
-  },
-
-  languageOptions: {
-    globals: {
-      ...globals.browser,
-      ...globals.node,
-    },
-
-    ecmaVersion: 2020,
-
-    sourceType: 'module',
-
-    parserOptions: {
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
-  },
-
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
-
-  rules: {
-    // eslint-plugin-react
-    'react/display-name': 'off',
-
-    // eslint-plugin-react-hooks
-    ...reactHooksPlugin.configs.recommended.rules,
-
-    // simple-import-sort
-    'simple-import-sort/exports': 'error',
-    'simple-import-sort/imports': [
-      'error',
-      {
-        groups: [
-          // Packages `react` related packages come first.
-          ['^react', '^@?\\w'],
-          // Internal packages.
-          ['^(@|components)(/.*|$)'],
-          // Side effect imports.
-          ['^\\u0000'],
-          // Parent imports. Put `..` last.
-          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-          // Other relative imports. Put same-folder imports and `.` last.
-          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-          // Style imports.
-          ['^.+\\.?(css)$'],
-        ],
-      },
+export default defineConfig(
+  { ignores: ['dist'] },
+  {
+    extends: [
+      js.configs.recommended,
+      reactConfigRecommended,
+      reactConfigJsxRuntime,
+      eslintPrettier,
     ],
+
+    files: ['src/**/*.js', 'src/**/*.jsx', '*.config.js'],
+
+    linterOptions: {
+      reportUnusedDisableDirectives: 'error',
+    },
+
+    plugins: {
+      'simple-import-sort': simpleImportSortPlugin,
+      'react-hooks': reactHooksPlugin,
+    },
+
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+
+      ecmaVersion: 2020,
+
+      sourceType: 'module',
+
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+
+    rules: {
+      // eslint-plugin-react
+      'react/display-name': 'off',
+
+      // eslint-plugin-react-hooks
+      ...reactHooksPlugin.configs.recommended.rules,
+
+      // simple-import-sort
+      'simple-import-sort/exports': 'error',
+      'simple-import-sort/imports': [
+        'error',
+        {
+          groups: [
+            // Packages `react` related packages come first.
+            ['^react', '^@?\\w'],
+            // Internal packages.
+            ['^(@|components)(/.*|$)'],
+            // Side effect imports.
+            ['^\\u0000'],
+            // Parent imports. Put `..` last.
+            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            // Other relative imports. Put same-folder imports and `.` last.
+            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            // Style imports.
+            ['^.+\\.?(css)$'],
+          ],
+        },
+      ],
+    },
   },
-});
+);
