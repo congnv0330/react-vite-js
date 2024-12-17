@@ -20,12 +20,12 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
-    "@types/node": "^20.17.9",
+    "@types/node": "^20.17.10",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "cross-env": "^7.0.3",
-    "eslint": "^9.16.0",
+    "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
@@ -33,7 +33,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.13.0",
     "prettier": "^3.4.2",
-    "sonda": "^0.6.1",
+    "sonda": "^0.6.2",
     "vite": "^6.0.3"
   }
 }
