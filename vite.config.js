@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc';
 import { fileURLToPath, URL } from 'node:url';
-import { SondaRollupPlugin } from 'sonda';
+import Sonda from 'sonda/vite';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
@@ -11,7 +11,7 @@ export default defineConfig(({ command }) => {
 
   if (isAnalyze) {
     plugins.push(
-      SondaRollupPlugin({
+      Sonda({
         open: true,
         filename: 'stats.html',
         detailed: true,
