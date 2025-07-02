@@ -14,7 +14,7 @@ export default defineConfig(({ command }) => {
       Sonda({
         open: true,
         filename: 'stats.html',
-        detailed: true,
+        deep: true,
         gzip: true,
       }),
     );
