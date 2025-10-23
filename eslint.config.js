@@ -11,7 +11,7 @@ export default defineConfig(
     ignores: ['dist'],
   },
   js.configs.recommended,
-  reactHooks.configs['recommended-latest'],
+  reactHooks.configs.flat.recommended,
   eslintPrettier,
   {
     extends: [
