@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 import Sonda from 'sonda/vite';
 import { defineConfig } from 'vite';
