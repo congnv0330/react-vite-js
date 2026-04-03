@@ -44,23 +44,34 @@ export default defineConfig(
 
     rules: {
       // simple-import-sort
-      'simple-import-sort/exports': 'error',
+      'simple-import-sort/exports': 'warn',
       'simple-import-sort/imports': [
-        'error',
+        'warn',
         {
           groups: [
-            // Packages `react` related packages come first.
-            ['^react', '^@?\\w'],
-            // Internal packages.
-            ['^(@|components)(/.*|$)'],
-            // Side effect imports.
+            // Side-effect imports (polyfills, etc.) — keep early so order is stable
             ['^\\u0000'],
-            // Parent imports. Put `..` last.
+
+            // Core libraries: React / ReactDOM first
+            ['^react$', '^react-dom(/|$)', '^react/'],
+
+            // Third-party: scoped (@mui/...) and bare (axios, lodash, …)
+            // `^@\\w` does not match `@/…` (alias) because the next char after @ must be \w
+            ['^@\\w', '^[a-z]'],
+
+            // Internal modules: path alias (matches tsconfig "@/*" → "@/…")
+            ['^@/'],
+
+            // Relative: parent dirs first, then same-folder
             ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-            // Other relative imports. Put same-folder imports and `.` last.
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-            // Style imports.
-            ['^.+\\.?(css)$'],
+
+            // Styles & assets last (relative or absolute-looking paths ending in these extensions)
+            [
+              '^.+\\.(css|scss|sass|less)$',
+              '^.+\\.(png|jpe?g|gif|webp|svg|ico|avif)$',
+              '^.+\\.(woff2?|ttf|otf|eot)$',
+            ],
           ],
         },
       ],
