@@ -33,7 +33,7 @@ export default defineConfig(({ command }) => {
       rollupOptions: {
         output: {
           chunkFileNames: 'static/[hash].chunk.js',
-          assetFileNames: 'static/[hash].[ext]',
+          assetFileNames: 'static/[hash][extname]',
         },
       },
     },
